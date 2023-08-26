@@ -44,6 +44,7 @@ class App extends React.Component {
       </div>
       :<div></div>}
       <p>You clicked {this.state.count} times</p>
+      <button onClick={this.resetCounter}>Reset Counter</button>
     </div>
   );
 }
