@@ -2,20 +2,35 @@ import React from 'react';
 import './App.css';
 
 class App extends React.Component {
-  state ={
+  
+  state = {
     person:{
       fullName:"rafaaBenHassine",
       bio:"rafpets",
       profession:"manager",
       imgSrc:"https://scontent.ftun14-1.fna.fbcdn.net/v/t39.30808-6/301382704_550217363570783_7804836825405236399_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1NtozqoEyK0AX-KGjaR&_nc_ht=scontent.ftun14-1.fna&oh=00_AfCOTnYgt4QrSi8KNs7URx6mxQVQ_HcA9h2CbbScvT68Xw&oe=64EDB4EA"
     },
-    Show:false
-  }
+    Show:false,
+
+    count: 0,
+    
+  };
   handleShow =()=>{
-    this.setState({Show:!this.state.Show})
+    this.setState({Show:!this.state.Show});
+  };
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState({ count: this.state.count + 1 });
+    }, 1000);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  
   render(){
-    console.log(this.state.Show)
+    console.log(this.state.Show);
   return (
   
     <div className='App'>
@@ -28,9 +43,11 @@ class App extends React.Component {
         <img src={this.state.person.imgSrc} alt='rafpets' />
       </div>
       :<div></div>}
+      <p>You clicked {this.state.count} times</p>
     </div>
   );
 }
 }
 
 export default App;
+
