@@ -1,54 +1,56 @@
 import React from 'react';
 import './App.css';
-
+import image1 from "./Images/301382704_550217363570783_7804836825405236399_n.jpg"
+// The App class extends the React.Component class and defines the state of the component, which includes a person object, a boolean value, and a count value. 
 class App extends React.Component {
   
   state = {
     person:{
-      fullName:"rafaaBenHassine",
+      fullName:"Rafaa Ben Hassine",
       bio:"rafpets",
-      profession:"manager",
-      imgSrc:"https://scontent.ftun14-1.fna.fbcdn.net/v/t39.30808-6/301382704_550217363570783_7804836825405236399_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1NtozqoEyK0AX-KGjaR&_nc_ht=scontent.ftun14-1.fna&oh=00_AfCOTnYgt4QrSi8KNs7URx6mxQVQ_HcA9h2CbbScvT68Xw&oe=64EDB4EA"
+      profession:"pet Shop manager",
+      imgSrc:image1
     },
     Show:false,
     
     count: 0,
     
     };
+    // handleReset, method is used to show the state and a compter (to update the state of the component)  when "click me button" is clicked.
   handleShow =()=>{
     this.setState({Show:!this.state.Show});
     
   };
-  
+  // The componentDidMount method is used to set up and clean up any resources that the component uses.
   componentDidMount() {
     this.interval = setInterval(() => {
       this.setState({ count: this.state.count + 1 });
     }, 1000);
   }
-  
+  // The componentWillUnmount method is used to set up and clean up any resources that the component uses.
   componentWillUnmount() {
     clearInterval(this.interval);
   }
   
   
-  
+  // handleReset, method is used to reset a counter(to update the state of the component)  when "reset button" is clicked.
   handleReset = () => {
     
     this.setState({ count: 0 });
     
   };
-  
+  // handleStop, method is used to stop a counter(to update the state of the component)  when "stop button" is clicked.
   handleStop = () => {
     
     this.setState({ count: 0 });
     clearInterval(this.interval);
   };
-  
+  // The render method is used to render the component’s user interface. It includes a button that toggles the visibility of a person object, which displays their full name, bio, profession, and image. It also includes a counter that increments every second and two buttons that reset or stop the counter.
   render(){
     console.log(this.state.Show);
   return (
   
-    <div className='App'>
+    <div className="App">
       <button onClick={this.handleShow} >click me</button>
       
       {this.state.Show?
@@ -59,11 +61,44 @@ class App extends React.Component {
         <img src={this.state.person.imgSrc} alt='rafpets' />
       </div>
       :<div></div>}
-      <p>You clicked {this.state.count} times</p>
-      <button onClick={this.handleReset}>reset</button>
+      
+      {/* compter */}
+        <p>You clicked {this.state.count} times</p>
+        {/* button reset compter */}
+        <button onClick={this.handleReset}>reset</button>
       <br></br>
       <br></br>
-      <button onClick={this.handleStop}>stop</button>
+      {/* button stop compter */}
+        <button onClick={this.handleStop}>stop</button>
+      
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 }
